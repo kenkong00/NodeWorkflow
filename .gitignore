@@ -34,7 +34,4 @@ user/
 *.db-wal
 .env*
 
-# ---- 含真实 Google API Key 的配置文件（不入库，公开仓库切勿上传）----
-工作流api/character-config-2026-04-08.json
-
 # 说明：本项目按需求上传图片，.shots/、.trae/、screenshots/、output/ 内的图片一并纳入版本库。
