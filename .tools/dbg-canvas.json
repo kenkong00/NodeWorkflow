@@ -1,0 +1,11 @@
+[
+  { "wait": 9000 },
+  { "eval": "(async () => { const ws = await (await fetch('/api/workflows')).json(); const w = ws.find(x => x.name === '验收工作流-三链'); const row = await (await fetch('/api/workflows/' + w.id)).json(); window.__comfyGraph.loadWorkflow(JSON.parse(row.graph_json)); return 'loaded'; })()" },
+  { "wait": 1500 },
+  { "eval": "JSON.stringify((() => { const c = window.__comfyGraph.canvas.canvas; const ctx = c.getContext('2d'); const d = ctx.getImageData(0, 0, c.width, c.height).data; let nonBlack = 0; for (let i = 0; i < d.length; i += 4) if (d[i] > 30 || d[i+1] > 30 || d[i+2] > 30) nonBlack++; return { w: c.width, h: c.height, nonBlack, total: d.length / 4, domWidgets: document.querySelectorAll('.canvas-host [class*=lg-dom-widget], .canvas-host .lg-upload-btn, .canvas-host input').length }; })())" },
+  { "shot": "34-canvas-loaded.png" },
+  { "eval": "document.querySelector('.topbar button.primary').click(); 'run'" },
+  { "wait": 5000 },
+  { "eval": "JSON.stringify((() => { const c = window.__comfyGraph.canvas.canvas; const ctx = c.getContext('2d'); const d = ctx.getImageData(0, 0, c.width, c.height).data; let nonBlack = 0; for (let i = 0; i < d.length; i += 4) if (d[i] > 30 || d[i+1] > 30 || d[i+2] > 30) nonBlack++; return { nonBlack, domImgs: document.querySelectorAll('.canvas-host img').length, domImgsVisible: [...document.querySelectorAll('.canvas-host img')].map(i => i.style.display + ':' + i.naturalWidth) }; })())" },
+  { "shot": "35-canvas-executed.png" }
+]

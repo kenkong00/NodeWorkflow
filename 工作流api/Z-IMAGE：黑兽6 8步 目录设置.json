@@ -1,0 +1,238 @@
+{
+  "80": {
+    "inputs": {
+      "clip_name": "qwen_3_4b.safetensors",
+      "type": "lumina2",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "加载CLIP"
+    }
+  },
+  "82": {
+    "inputs": {
+      "samples": [
+        "138",
+        0
+      ],
+      "vae": [
+        "86",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE解码"
+    }
+  },
+  "83": {
+    "inputs": {
+      "filename_prefix": "2026-03-26/%KSampler.seed%",
+      "images": [
+        "82",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "保存图像"
+    }
+  },
+  "84": {
+    "inputs": {
+      "width": [
+        "145",
+        0
+      ],
+      "height": [
+        "146",
+        0
+      ],
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "空Latent图像"
+    }
+  },
+  "85": {
+    "inputs": {
+      "text": [
+        "106",
+        0
+      ],
+      "clip": [
+        "126",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP文本编码"
+    }
+  },
+  "86": {
+    "inputs": {
+      "vae_name": "ae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "加载VAE"
+    }
+  },
+  "93": {
+    "inputs": {
+      "conditioning": [
+        "85",
+        0
+      ]
+    },
+    "class_type": "ConditioningZeroOut",
+    "_meta": {
+      "title": "条件零化"
+    }
+  },
+  "106": {
+    "inputs": {
+      "inputcount": 2,
+      "delimiter": " ",
+      "return_list": false,
+      "Update inputs": null,
+      "string_1": [
+        "107",
+        0
+      ],
+      "string_2": [
+        "109",
+        0
+      ]
+    },
+    "class_type": "JoinStringMulti",
+    "_meta": {
+      "title": "Join String Multi"
+    }
+  },
+  "107": {
+    "inputs": {
+      "text": "这张高分辨率杰作照片呈现出 35 毫米胶片的质感，将逼真的纹理和完美的肌肤细节与好莱坞电影般的暗黑、忧郁和高对比度戏剧效果完美融合。照片运用了深邃的景深、次表面散射和富有表现力的体积光，营造出一种饱含情感且逼真的美感。\n"
+    },
+    "class_type": "Text Multiline",
+    "_meta": {
+      "title": "全局样式"
+    }
+  },
+  "109": {
+    "inputs": {
+      "text": ""
+    },
+    "class_type": "Text Multiline",
+    "_meta": {
+      "title": "单图提示词"
+    }
+  },
+  "121": {
+    "inputs": {
+      "lora_name": "【z-image】\\ZIB 风格\\Kook_Zimage_瑶光.safetensors",
+      "strength_model": 0.95,
+      "model": [
+        "153",
+        0
+      ]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "LoRA加载器（仅模型）"
+    }
+  },
+  "125": {
+    "inputs": {
+      "gguf_name": "z_image_turbo-Q4_K_M.gguf"
+    },
+    "class_type": "LoaderGGUF",
+    "_meta": {
+      "title": "GGUF Loader"
+    }
+  },
+  "126": {
+    "inputs": {
+      "clip_name": "Qwen3-4b-Z-Image-Engineer-V4-Q8_0.gguf",
+      "type": "qwen_image"
+    },
+    "class_type": "CLIPLoaderGGUF",
+    "_meta": {
+      "title": "CLIPLoader (GGUF)"
+    }
+  },
+  "138": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 470498628554951,
+      "steps": 8,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "start_at_step": 0,
+      "end_at_step": 10000,
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "121",
+        0
+      ],
+      "positive": [
+        "85",
+        0
+      ],
+      "negative": [
+        "93",
+        0
+      ],
+      "latent_image": [
+        "84",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "K采样器（高级）"
+    }
+  },
+  "145": {
+    "inputs": {
+      "value": 832
+    },
+    "class_type": "INTConstant",
+    "_meta": {
+      "title": "宽"
+    }
+  },
+  "146": {
+    "inputs": {
+      "value": 1152
+    },
+    "class_type": "INTConstant",
+    "_meta": {
+      "title": "高"
+    }
+  },
+  "153": {
+    "inputs": {
+      "unet_name": "Zimage\\darkbeastz6BlitzScaled.CEhH.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "大模型"
+    }
+  },
+  "154": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "only_preview": false
+    },
+    "class_type": "easy imageSave",
+    "_meta": {
+      "title": "图像保存"
+    }
+  }
+}

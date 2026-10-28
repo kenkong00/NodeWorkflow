@@ -1,0 +1,9 @@
+[
+  { "wait": 6000 },
+  { "eval": "(() => { const app = document.querySelector('#app'); return JSON.stringify({ appChildren: app ? app.children.length : -1, appHTML: app ? app.innerHTML.slice(0, 400) : 'NO #app' }); })()" },
+  { "eval": "(() => { const c = document.querySelector('canvas'); return JSON.stringify({ hasCanvas: !!c, w: c ? c.width : 0, h: c ? c.height : 0, cssW: c ? c.clientWidth : 0, cssH: c ? c.clientHeight : 0 }); })()" },
+  { "eval": "(() => ({ hasGraph: typeof window.__comfyGraph !== 'undefined', graphType: window.__comfyGraph ? window.__comfyGraph.constructor.name : null, nodeCount: window.__comfyGraph && window.__comfyGraph.graph ? window.__comfyGraph.graph._nodes.length : -1 })); " },
+  { "eval": "(() => { const btns = [...document.querySelectorAll('button')].map(b => (b.textContent||'').trim()).filter(Boolean); return JSON.stringify(btns.slice(0, 40)); })()" },
+  { "eval": "(() => JSON.stringify({ bodyClass: document.body.className, bodyChildren: document.body.children.length, title: document.title })); " },
+  { "shot": "10-diag.png" }
+]

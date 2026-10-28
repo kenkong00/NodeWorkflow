@@ -1,0 +1,300 @@
+{
+  "2": {
+    "inputs": {
+      "unet_name": "krea2\\krea2_turbo_fp8.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "UNet加载器"
+    }
+  },
+  "3": {
+    "inputs": {
+      "samples": [
+        "89",
+        0
+      ],
+      "vae": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE解码"
+    }
+  },
+  "5": {
+    "inputs": {
+      "vae_name": "qwen\\qwen_image_vae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "加载VAE"
+    }
+  },
+  "7": {
+    "inputs": {
+      "clip_name": "krea2\\qwen3vl_4b_fp8_scaled.safetensors",
+      "type": "krea2",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "加载CLIP"
+    }
+  },
+  "8": {
+    "inputs": {
+      "width": 512,
+      "height": 768,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "空Latent图像"
+    }
+  },
+  "9": {
+    "inputs": {
+      "conditioning": [
+        "11",
+        0
+      ]
+    },
+    "class_type": "ConditioningZeroOut",
+    "_meta": {
+      "title": "条件零化"
+    }
+  },
+  "11": {
+    "inputs": {
+      "text": [
+        "61",
+        0
+      ],
+      "clip": [
+        "7",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP文本编码"
+    }
+  },
+  "58": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "3",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "保存图像"
+    }
+  },
+  "60": {
+    "inputs": {
+      "text": "### 分镜 58\n\n视角：短焦镜头，超低视角，近景特写阴道和肉棒的插入;\n\n角色动作与构图：画面聚焦赤裸男人双腿打开的下体和巨大的睾丸，上面是陆零（中国，女，16岁，身材娇小玲珑未发育，身高约150cm，胸前平坦，黑色长发扎成双马尾，乳房露出，小巧的乳头，全身赤裸，双腿叉开）面部和上半身，到处是白色透明精液，大量的白色精液在她的身体上，头部后仰，下巴抬起，脖子后仰拉伸，只看到鼻孔，和半截舌头从嘴唇处吐出，口腔大张，下巴无法合拢，马尾一上一下和一样在空中无力的甩动形成少量模糊的残影，陆零双手无力弯曲在空中，圆鼓鼓怀孕的肚子挺起十分巨大大，大到占满半个屏幕，肚子上有凸起的痕迹，短平身材展露，全身是巨量汗水，汗水被泼渐到空中，大量的口水从口里喷出，像个水泉一样喷射空中，洒落流到身上，地上，双腿已经成一字马，坐在男人大腿上，整根肉棒已经深深的插入她的阴道，阴道里喷出巨大量淫水在空中形成喷雾，地面上到处是淫水，淫水喷满了整个空间，男人的裸露的双手从她背后伸出，手指夹住陆零的乳头向外拽，乳头被拉伸。陆零的坐在是男人弯曲的两腿之间，整个人被顶起在空中，她的背后隐约看到赤裸光头男子猥琐的笑蓉，\n\n打光：正面光照射，坐在赤裸的男人的阴茎上，赤裸男人躺在地上，挡住了压在他屁股下的红色短装上，双马尾的黑色光泽明显;\n\n场景：山门前集合地背景，两柄巨型流星锤的黑铁锤头入画面远景，晨雾和古松模糊处理;"
+    },
+    "class_type": "Text Multiline",
+    "_meta": {
+      "title": "提示词"
+    }
+  },
+  "61": {
+    "inputs": {
+      "inputcount": 5,
+      "delimiter": " ",
+      "return_list": false,
+      "Update inputs": null,
+      "string_1": [
+        "65",
+        0
+      ],
+      "string_2": [
+        "60",
+        0
+      ]
+    },
+    "class_type": "JoinStringMulti",
+    "_meta": {
+      "title": "Join String Multi"
+    }
+  },
+  "62": {
+    "inputs": {
+      "text": "这是一张35毫米胶片拍摄的真人版剧照，采用深邃的新黑色电影阴影、浓重的模拟胶片颗粒、逼真的皮肤毛孔、真实的织物纹理以及黑暗、写实的电影美学进行拍摄,"
+    },
+    "class_type": "Text Multiline",
+    "_meta": {
+      "title": "风格"
+    }
+  },
+  "63": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "lora_1": {
+        "on": false,
+        "lora": "【krea2】\\nsfw\\MysticXXX_KREA2_v1.safetensors",
+        "strength": 1
+      },
+      "lora_2": {
+        "on": false,
+        "lora": "【krea2】\\控制\\real_3d_krea2_loraholic.safetensors",
+        "strength": 2
+      },
+      "lora_3": {
+        "on": false,
+        "lora": "【krea2】\\控制\\age_krea2_loraholic.safetensors",
+        "strength": -0.5
+      },
+      "lora_4": {
+        "on": false,
+        "lora": "【krea2】\\控制\\monolid_krea2_loraholic.safetensors",
+        "strength": -1.5
+      },
+      "lora_5": {
+        "on": false,
+        "lora": "【krea2】\\控制\\breast_size_krea2_loraholic.safetensors",
+        "strength": 2
+      },
+      "lora_6": {
+        "on": false,
+        "lora": "【krea2】\\特色\\ERPSX_K2.safetensors",
+        "strength": 1
+      },
+      "lora_7": {
+        "on": true,
+        "lora": "【krea2】\\nsfw\\realism_engine_krea2_v2.safetensors",
+        "strength": 0.9
+      },
+      "lora_8": {
+        "on": false,
+        "lora": "【krea2】\\风格\\Playboy-1980s-krea2-v1_000001500.safetensors",
+        "strength": 0.9
+      },
+      "lora_9": {
+        "on": false,
+        "lora": "【krea2】\\控制\\Detailer-KREA2.safetensors",
+        "strength": 2
+      },
+      "lora_10": {
+        "on": true,
+        "lora": "【krea2】\\风格\\Krea2Turbo_RadianceChromeVoluptuous_v1.0.safetensors",
+        "strength": 0.15
+      },
+      "lora_11": {
+        "on": false,
+        "lora": "【krea2】\\特色\\shadiaodonghua_沙雕.safetensors",
+        "strength": 0.5
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "2",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "Power Lora Loader (rgthree)"
+    }
+  },
+  "65": {
+    "inputs": {
+      "text": [
+        "62",
+        0
+      ]
+    },
+    "class_type": "Text Multiline",
+    "_meta": {
+      "title": "Text Multiline"
+    }
+  },
+  "72": {
+    "inputs": {
+      "text_0": "这是一张35毫米胶片拍摄的真人版剧照，采用深邃的新黑色电影阴影、浓重的模拟胶片颗粒、逼真的皮肤毛孔、真实的织物纹理以及黑暗、写实的电影美学进行拍摄, \n视角：短焦镜头，超低视角，近景特写阴道和肉棒的插入;\n\n角色动作与构图：画面聚焦赤裸男人双腿打开的下体和巨大的睾丸，上面是陆零（中国，女，16岁，身材娇小玲珑未发育，身高约150cm，胸前平坦，黑色长发扎成双马尾，乳房露出，小巧的乳头，全身赤裸，双腿叉开）面部和上半身，到处是白色透明精液，大量的白色精液在她的身体上，头部后仰，下巴抬起，脖子后仰拉伸，只看到鼻孔，和半截舌头从嘴唇处吐出，口腔大张，下巴无法合拢，马尾一上一下和一样在空中无力的甩动形成少量模糊的残影，陆零双手无力弯曲在空中，圆鼓鼓怀孕的肚子挺起十分巨大大，大到占满半个屏幕，肚子上有凸起的痕迹，短平身材展露，全身是巨量汗水，汗水被泼渐到空中，大量的口水从口里喷出，像个水泉一样喷射空中，洒落流到身上，地上，双腿已经成一字马，坐在男人大腿上，整根肉棒已经深深的插入她的阴道，阴道里喷出巨大量淫水在空中形成喷雾，地面上到处是淫水，淫水喷满了整个空间，男人的裸露的双手从她背后伸出，手指夹住陆零的乳头向外拽，乳头被拉伸。陆零的坐在是男人弯曲的两腿之间，整个人被顶起在空中，她的背后隐约看到赤裸光头男子猥琐的笑蓉，\n\n打光：正面光照射，坐在赤裸的男人的阴茎上，赤裸男人躺在地上，挡住了压在他屁股下的红色短装上，双马尾的黑色光泽明显;\n\n场景：山门前集合地背景，两柄巨型流星锤的黑铁锤头入画面远景，晨雾和古松模糊处理;",
+      "text": [
+        "61",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Show Text 🐍"
+    }
+  },
+  "87": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 642093266942783,
+      "steps": 8,
+      "cfg": 1,
+      "sampler_name": "euler_ancestral",
+      "scheduler": "sgm_uniform",
+      "start_at_step": 0,
+      "end_at_step": 2,
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "63",
+        0
+      ],
+      "positive": [
+        "11",
+        0
+      ],
+      "negative": [
+        "9",
+        0
+      ],
+      "latent_image": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "K采样器（高级）"
+    }
+  },
+  "89": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 401128745651049,
+      "steps": 8,
+      "cfg": 1,
+      "sampler_name": "ddim",
+      "scheduler": "beta",
+      "start_at_step": 2,
+      "end_at_step": 8,
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "63",
+        0
+      ],
+      "positive": [
+        "11",
+        0
+      ],
+      "negative": [
+        "9",
+        0
+      ],
+      "latent_image": [
+        "87",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "K采样器（高级）"
+    }
+  }
+}

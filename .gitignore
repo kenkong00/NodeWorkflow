@@ -1,0 +1,40 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ---- 运行/数据（不入库，但保留图片）----
+runtime/
+.dbg/
+.workbuddy/
+data/
+user/
+*.db
+*.db-shm
+*.db-wal
+.env*
+
+# ---- 含真实 Google API Key 的配置文件（不入库，公开仓库切勿上传）----
+工作流api/character-config-2026-04-08.json
+
+# 说明：本项目按需求上传图片，.shots/、.trae/、screenshots/、output/ 内的图片一并纳入版本库。

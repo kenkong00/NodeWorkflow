@@ -1,0 +1,9 @@
+[
+  { "wait": 9000 },
+  { "eval": "(async () => { const ws = await (await fetch('/api/workflows')).json(); const w = ws.find(x => x.name === '验收工作流-三链'); const j = await (await fetch('/api/workflows/' + w.id)).json(); window.__comfyGraph.loadWorkflow(j); return 'loaded ' + w.id; })()" },
+  { "wait": 1500 },
+  { "eval": "(() => { try { const n = Object.values(window.__comfyGraph.graph._nodes).find(x => x.type === 'PreviewImageNative'); if (!n) return 'NO_NODE'; const info = { hasOW: !!n.outputWidget, widgetCount: n.widgets.length, widgetNames: n.widgets.map(w => w.name), owVal: n.outputWidget ? JSON.stringify(n.outputWidget.value) : null }; const el = n.widgets[n.widgets.length - 1].element; info.elExists = !!el; if (el) { const img = el.querySelector('img'); info.imgSrc = img ? img.src : 'no-img-el'; } return JSON.stringify(info); } catch (e) { return 'EXC: ' + e.message; } })()" },
+  { "eval": "document.querySelector('.topbar button.primary').click()" },
+  { "wait": 5000 },
+  { "eval": "(() => { try { const n = Object.values(window.__comfyGraph.graph._nodes).find(x => x.type === 'PreviewImageNative'); const el = n.widgets[n.widgets.length - 1].element; const img = el ? el.querySelector('img') : null; return JSON.stringify({ owVal: n.outputWidget ? JSON.stringify(n.outputWidget.value) : null, imgSrc: img ? img.src : 'no-img', imgDisplay: img ? img.style.display : null, naturalW: img ? img.naturalWidth : 0 }); } catch (e) { return 'EXC: ' + e.message; } })()" }
+]

@@ -1,0 +1,56 @@
+{
+  "last_node_id": 3,
+  "last_link_id": 2,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "PrimitiveNode",
+      "pos": [80, 60],
+      "size": [240, 160],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [{ "name": "*", "type": "*", "links": [1], "slot_index": 0 }],
+      "properties": {},
+      "widgets_values": [42]
+    },
+    {
+      "id": 2,
+      "type": "PrimitiveNode",
+      "pos": [80, 300],
+      "size": [240, 160],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [{ "name": "*", "type": "*", "links": [2], "slot_index": 0 }],
+      "properties": {},
+      "widgets_values": [58]
+    },
+    {
+      "id": 3,
+      "type": "MathOp",
+      "pos": [430, 140],
+      "size": [280, 200],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        { "name": "a", "type": "FLOAT", "link": 1 },
+        { "name": "b", "type": "FLOAT", "link": 2 }
+      ],
+      "outputs": [{ "name": "RESULT", "type": "FLOAT", "links": [], "slot_index": 0 }],
+      "properties": {},
+      "widgets_values": ["add", 0, 0]
+    }
+  ],
+  "links": [
+    [1, 1, 0, 3, 0, "FLOAT"],
+    [2, 2, 0, 3, 1, "FLOAT"]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {},
+  "version": 0.4
+}

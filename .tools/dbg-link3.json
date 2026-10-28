@@ -1,0 +1,8 @@
+[
+  { "wait": 9000 },
+  { "eval": "(async () => { const r = await fetch('/examples/01-文本传递.json'); const j = await r.json(); window.__comfyGraph.loadWorkflow(j); window.__dbg = []; const c = window.__comfyGraph.canvas.canvas; const orig = window.__comfyGraph.canvas.processMouseUp; window.__comfyGraph.canvas.processMouseUp = function (e) { window.__dbg.push('override-called canvasX=' + e.canvasX + ' cn=' + !!this.connecting_node + ' bridge=' + !!this.__onSearchBoxFromLink + ' onOpenCB=' + !!window.__comfyGraph.onOpenSearchBox); return orig.call(this, e); }; return 'patched-dbg'; })()" },
+  { "wait": 800 },
+  { "eval": "(() => { const g = window.__comfyGraph; const node = Object.values(g.graph._nodes).find(n => n.type === 'TextInput'); const [gx, gy] = node.getConnectionPos(false, 0); const rect = g.canvas.canvas.getBoundingClientRect(); const va = g.canvas.visible_area; const sx = Math.round(rect.left + (gx - va[0]) * g.canvas.ds.scale); const sy = Math.round(rect.top + (gy - va[1]) * g.canvas.ds.scale); const c = g.canvas.canvas; const mk = (type, x, y, buttons) => c.dispatchEvent(new MouseEvent(type, { clientX: x, clientY: y, button: 0, buttons, bubbles: true, cancelable: true, view: window })); mk('mousedown', sx, sy, 1); mk('mousemove', 950, 640, 1); document.dispatchEvent(new MouseEvent('mouseup', { clientX: 950, clientY: 640, button: 0, buttons: 0, bubbles: true, cancelable: true, view: window })); return 'done'; })()" },
+  { "wait": 800 },
+  { "eval": "JSON.stringify({ dbg: window.__dbg, searchShown: !!document.querySelector('.node-search-box'), cn: !!window.__comfyGraph.canvas.connecting_node })" }
+]

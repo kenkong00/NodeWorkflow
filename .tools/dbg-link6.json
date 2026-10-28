@@ -1,0 +1,17 @@
+[
+  { "wait": 9000 },
+  { "eval": "(async () => { const r = await fetch('/examples/01-文本传递.json'); const j = await r.json(); window.__comfyGraph.loadWorkflow(j); return 'loaded'; })()" },
+  { "wait": 1200 },
+  { "eval": "document.querySelector('.canvas-host').dispatchEvent(new MouseEvent('contextmenu', { clientX: 640, clientY: 420, bubbles: true, cancelable: true }))" },
+  { "wait": 400 },
+  { "eval": "(() => { const i = document.querySelector('.nsb-input'); i.value = '文本 输入'; i.dispatchEvent(new Event('input')); return 1; })()" },
+  { "wait": 300 },
+  { "eval": "document.activeElement.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true, cancelable: true }))" },
+  { "wait": 500 },
+  { "eval": "JSON.stringify({ maskGone: !document.querySelector('.node-search-mask'), boxGone: !document.querySelector('.node-search-box'), active: document.activeElement.tagName })" },
+  { "eval": "(() => { const g = window.__comfyGraph; const node = Object.values(g.graph._nodes).find(n => n.type === 'TextInput'); const [gx, gy] = node.getConnectionPos(false, 0); const rect = g.canvas.canvas.getBoundingClientRect(); const va = g.canvas.visible_area; const sx = Math.round(rect.left + (gx - va[0]) * g.canvas.ds.scale); const sy = Math.round(rect.top + (gy - va[1]) * g.canvas.ds.scale); const c = g.canvas.canvas; c.dispatchEvent(new MouseEvent('mousedown', { clientX: sx, clientY: sy, button: 0, buttons: 1, bubbles: true, cancelable: true, view: window })); return JSON.stringify({ connecting: !!g.canvas.connecting_node, outType: g.canvas.connecting_output && g.canvas.connecting_output.type }); })()" },
+  { "eval": "(() => { const g = window.__comfyGraph; const c = g.canvas.canvas; c.dispatchEvent(new MouseEvent('mousemove', { clientX: 1180, clientY: 860, button: 0, buttons: 1, bubbles: true, cancelable: true, view: window })); return JSON.stringify({ still: !!g.canvas.connecting_node }); })()" },
+  { "eval": "(() => { const g = window.__comfyGraph; document.dispatchEvent(new MouseEvent('mouseup', { clientX: 1180, clientY: 860, button: 0, buttons: 0, bubbles: true, cancelable: true, view: window })); return 'up'; })()" },
+  { "wait": 700 },
+  { "eval": "JSON.stringify({ search: !!document.querySelector('.node-search-box') })" }
+]

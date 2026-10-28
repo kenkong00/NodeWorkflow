@@ -1,0 +1,15 @@
+[
+  { "wait": 9000 },
+  { "eval": "(async () => { const r = await fetch('/examples/01-文本传递.json'); const j = await r.json(); window.__comfyGraph.loadWorkflow(j); return 'loaded'; })()" },
+  { "wait": 1500 },
+  { "eval": "(() => { const g = window.__comfyGraph; const node = Object.values(g.graph._nodes).find(n => n.type === 'TextInput'); const [gx, gy] = node.getConnectionPos(false, 0); const rect = g.canvas.canvas.getBoundingClientRect(); const va = g.canvas.visible_area; const sx = Math.round(rect.left + (gx - va[0]) * g.canvas.ds.scale); const sy = Math.round(rect.top + (gy - va[1]) * g.canvas.ds.scale); const c = g.canvas.canvas; const mk = (type, x, y, buttons) => c.dispatchEvent(new MouseEvent(type, { clientX: x, clientY: y, button: 0, buttons, bubbles: true, cancelable: true, view: window })); mk('mousedown', sx, sy, 1); return JSON.stringify({ pos: [sx, sy], afterDown: { connecting: !!g.canvas.connecting_node, type: g.canvas.connecting_output && g.canvas.connecting_output.type, slot: g.canvas.connecting_slot } }); })()" },
+  { "eval": "(() => { const g = window.__comfyGraph; const c = g.canvas.canvas; const mk = (type, x, y, buttons) => c.dispatchEvent(new MouseEvent(type, { clientX: x, clientY: y, button: 0, buttons, bubbles: true, cancelable: true, view: window })); mk('mousemove', 760, 200, 1); mk('mousemove', 950, 640, 1); return JSON.stringify({ stillConnecting: !!g.canvas.connecting_node }); })()" },
+  { "eval": "(() => { const g = window.__comfyGraph; const c = g.canvas.canvas; const before = Object.keys(g.graph._nodes).length; document.dispatchEvent(new MouseEvent('mouseup', { clientX: 950, clientY: 640, button: 0, buttons: 0, bubbles: true, cancelable: true, view: window })); return JSON.stringify({ before, after: Object.keys(g.graph._nodes).length }); })()" },
+  { "wait": 700 },
+  { "eval": "(() => { const b = document.querySelector('.node-search-box'); return JSON.stringify({ shown: !!b, filter: document.querySelector('.nsb-filter') && document.querySelector('.nsb-filter').textContent, rows: document.querySelectorAll('.nsb-row').length, topRows: [...document.querySelectorAll('.nsb-row .cat')].slice(0, 6).map(e => e.textContent) }); })()" },
+  { "shot": "26-linkdrop-ok.png" },
+  { "eval": "(() => { const i = document.querySelector('.nsb-input'); if (i) i.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true, cancelable: true })); return 1; })()" },
+  { "wait": 700 },
+  { "eval": "JSON.stringify({ nodes: Object.keys(window.__comfyGraph.graph._nodes).length, links: Object.keys(window.__comfyGraph.graph.links || {}).length, types: Object.values(window.__comfyGraph.graph._nodes).map(n => n.type) })" },
+  { "shot": "27-linkdrop-connected.png" }
+]

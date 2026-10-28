@@ -1,0 +1,11 @@
+[
+  { "wait": 9000 },
+  { "eval": "document.querySelectorAll('.topbar button')[3].click(); 'new'" },
+  { "wait": 500 },
+  { "eval": "window.__comfyGraph.addNode('TextInput', [100, 100]); window.__comfyGraph.addNode('TextDisplay', [400, 100]); 'built'" },
+  { "wait": 400 },
+  { "eval": "window.__saveBodies = []; const of = window.fetch; window.fetch = async function (...a) { if (String(a[0]).includes('/api/workflows') && a[1] && a[1].method === 'POST') { window.__saveBodies.push(String(a[1].body).slice(0, 600)); } return of.apply(this, a); }; 'fetch-patched'" },
+  { "eval": "document.querySelectorAll('.topbar button')[1].click(); 'saved'" },
+  { "wait": 2000 },
+  { "eval": "JSON.stringify(window.__saveBodies)" }
+]

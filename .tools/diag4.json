@@ -1,0 +1,16 @@
+[
+  { "wait": 8000 },
+  { "click": ".topbar button:nth-of-type(3)" },
+  { "wait": 1500 },
+  { "eval": "(() => JSON.stringify({ modal: !!document.querySelector('.modal-mask'), modalText: (document.querySelector('.modal') || {}).textContent, btns: [...document.querySelectorAll('.modal button')].map(b => (b.textContent||'').trim()) })); " },
+  { "shot": "13-open-dialog.png" },
+  { "click": ".modal .x" },
+  { "wait": 500 },
+  { "click": ".topbar button:nth-of-type(4)" },
+  { "wait": 1500 },
+  { "eval": "(() => JSON.stringify({ nodes: Object.keys(window.__comfyGraph.graph._nodes).length })); " },
+  { "click": ".lp-tab:nth-child(2)" },
+  { "wait": 2000 },
+  { "eval": "(() => JSON.stringify({ nodeItems: document.querySelectorAll('.node-item').length, firstItems: [...document.querySelectorAll('.node-item')].slice(0,5).map(e => (e.textContent||'').trim()), draggable: [...document.querySelectorAll('.node-item')].slice(0,3).map(e => e.draggable) })); " },
+  { "shot": "14-nodelib.png" }
+]

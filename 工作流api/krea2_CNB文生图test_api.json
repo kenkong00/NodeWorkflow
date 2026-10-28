@@ -1,0 +1,211 @@
+{
+  "2": {
+    "inputs": {
+      "unet_name": "krea2_turbo_fp8.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "UNet加载器"
+    }
+  },
+  "3": {
+    "inputs": {
+      "samples": [
+        "32",
+        0
+      ],
+      "vae": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE解码"
+    }
+  },
+  "5": {
+    "inputs": {
+      "vae_name": "qwen_image_vae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "加载VAE"
+    }
+  },
+  "7": {
+    "inputs": {
+      "clip_name": "qwen3vl_4b_fp8_scaled.safetensors",
+      "type": "krea2",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "加载CLIP"
+    }
+  },
+  "8": {
+    "inputs": {
+      "width": 1600,
+      "height": 904,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "空Latent图像"
+    }
+  },
+  "9": {
+    "inputs": {
+      "conditioning": [
+        "11",
+        0
+      ]
+    },
+    "class_type": "ConditioningZeroOut",
+    "_meta": {
+      "title": "条件零化"
+    }
+  },
+  "11": {
+    "inputs": {
+      "text": [
+        "61",
+        0
+      ],
+      "clip": [
+        "7",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP文本编码"
+    }
+  },
+  "32": {
+    "inputs": {
+      "seed": 317230980908422,
+      "steps": 8,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "beta",
+      "denoise": 1,
+      "model": [
+        "63",
+        0
+      ],
+      "positive": [
+        "11",
+        0
+      ],
+      "negative": [
+        "9",
+        0
+      ],
+      "latent_image": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "K采样器"
+    }
+  },
+  "58": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "3",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "保存图像"
+    }
+  },
+  "61": {
+    "inputs": {
+      "inputcount": 2,
+      "delimiter": " ",
+      "return_list": false,
+      "Update inputs": null,
+      "string_1": [
+        "81",
+        0
+      ],
+      "string_2": [
+        "82",
+        0
+      ]
+    },
+    "class_type": "JoinStringMulti",
+    "_meta": {
+      "title": "Join String Multi"
+    }
+  },
+  "63": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "lora_1": {
+        "on": true,
+        "lora": "krea2/nsfw/realism_engine_krea2_v2.safetensors",
+        "strength": 1
+      },
+      "lora_2": {
+        "on": false,
+        "lora": "krea2/控制/age_krea2_loraholic.safetensors",
+        "strength": -0.5
+      },
+      "lora_3": {
+        "on": false,
+        "lora": "krea2/控制/real_3d_krea2_loraholic.safetensors",
+        "strength": 1.5
+      },
+      "lora_4": {
+        "on": false,
+        "lora": "krea2/控制/breast_size_krea2_loraholic.safetensors",
+        "strength": 3
+      },
+      "lora_5": {
+        "on": false,
+        "lora": "krea2/控制/monolid_krea2_loraholic.safetensors",
+        "strength": -1.5
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "2",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "Power Lora Loader (rgthree)"
+    }
+  },
+  "81": {
+    "inputs": {
+      "string": "这是一张35毫米胶片拍摄的真人版剧照，采用深邃的新黑色电影阴影、浓重的模拟胶片颗粒、逼真的皮肤毛孔、真实的织物纹理以及黑暗、写实的电影美学进行拍摄。",
+      "strip_newlines": true
+    },
+    "class_type": "StringConstantMultiline",
+    "_meta": {
+      "title": "可以写入风格提示词"
+    }
+  },
+  "82": {
+    "inputs": {
+      "string": "### 3. 夜晚的浴室门\n\n> m1V8，恐怖杰作，电影级佳作，顶级心理恐怖影像；场景设定在夜晚一间普通的小公寓浴室里，观者站在昏暗的走廊上，浴室灯光亮着；尽管走廊看似空无一人，镜中却映照出一位面色苍白的女子正站在观者身后；她神情木然却仿佛洞悉一切，湿漉漉的头发遮住了半边脸庞；原本平凡的居家环境变得危机四伏；包含洗手池、毛巾、牙刷、瓷砖地面等元素；营造出一种令人窒息的写实感；通过“本不该存在之物”引发恐惧；细节呈现照片级真实质感；光影设计优雅且具电影感；令人瞬间感到毛骨悚然。",
+      "strip_newlines": true
+    },
+    "class_type": "StringConstantMultiline",
+    "_meta": {
+      "title": "生图提示词"
+    }
+  }
+}

@@ -1,0 +1,2180 @@
+{
+  "id": "a5646988-1567-4f16-92f4-f8247e8f4da1",
+  "revision": 0,
+  "last_node_id": 131,
+  "last_link_id": 239,
+  "nodes": [
+    {
+      "id": 127,
+      "type": "UNETLoader",
+      "pos": [
+        -6419.992412711341,
+        -1917.7784313320096
+      ],
+      "size": [
+        460.0220830043413,
+        82
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            238
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.7"
+        }
+      },
+      "widgets_values": [
+        "z_image_turbo_bf16.safetensors",
+        "default"
+      ],
+      "color": "#332922",
+      "bgcolor": "#593930"
+    },
+    {
+      "id": 131,
+      "type": "Power Lora Loader (rgthree)",
+      "pos": [
+        -6416.849800523315,
+        -1751.2951318226828
+      ],
+      "size": [
+        456.9201271894186,
+        142
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "dir": 3,
+          "name": "model",
+          "type": "MODEL",
+          "link": 238
+        },
+        {
+          "dir": 3,
+          "name": "clip",
+          "type": "CLIP",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "dir": 4,
+          "name": "MODEL",
+          "shape": 3,
+          "type": "MODEL",
+          "links": [
+            239
+          ]
+        },
+        {
+          "dir": 4,
+          "name": "CLIP",
+          "shape": 3,
+          "type": "CLIP",
+          "links": null
+        }
+      ],
+      "properties": {
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {}
+        },
+        "Show Strengths": "Single Strength"
+      },
+      "widgets_values": [
+        {},
+        {
+          "type": "PowerLoraLoaderHeaderWidget"
+        },
+        {
+          "on": true,
+          "lora": "z-image\\Z-Image-Turbo-600PX-LoRA亚洲人像抽卡机_V1.safetensors",
+          "strength": 0.6,
+          "strengthTwo": null
+        },
+        {},
+        ""
+      ],
+      "color": "#332922",
+      "bgcolor": "#593930"
+    },
+    {
+      "id": 128,
+      "type": "a7560b6f-d7a7-4d61-b700-e1f2d3f6f1b8",
+      "pos": [
+        -5912.95304236836,
+        -1915.2457919661547
+      ],
+      "size": [
+        484.51587445831683,
+        367.7491845314737
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 239
+        },
+        {
+          "label": "提示词",
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": null
+        },
+        {
+          "label": "是否横屏",
+          "name": "value",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "value"
+          },
+          "link": null
+        },
+        {
+          "label": "提示词文件",
+          "name": "value_1",
+          "type": "STRING",
+          "widget": {
+            "name": "value_1"
+          },
+          "link": null
+        },
+        {
+          "label": "输出文件目录",
+          "name": "directory",
+          "type": "STRING",
+          "widget": {
+            "name": "directory"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "title": "参考B站UP（程序员萝卜）视频教程",
+      "properties": {
+        "proxyWidgets": [
+          [
+            "-1",
+            "text"
+          ],
+          [
+            "-1",
+            "value"
+          ],
+          [
+            "-1",
+            "value_1"
+          ],
+          [
+            "-1",
+            "directory"
+          ]
+        ],
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.7"
+        }
+      },
+      "widgets_values": [
+        "中国上海网红美女，她身着燕麦色针织开衫与高腰阔腿牛仔裤，一头慵懒法式卷发垂落肩头，置身于上海外滩露天咖啡馆。",
+        true,
+        "z:/zit/提示词.txt",
+        "z:/zit/Z%y-%m-%d"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    }
+  ],
+  "links": [
+    [
+      238,
+      127,
+      0,
+      131,
+      0,
+      "MODEL"
+    ],
+    [
+      239,
+      131,
+      0,
+      128,
+      0,
+      "MODEL"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 4,
+      "title": "参考B站UP（程序员萝卜）视频教程",
+      "bounding": [
+        -6491.440952500315,
+        -2036.3568591232975,
+        1117.761724641111,
+        581.2335371702486
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "definitions": {
+    "subgraphs": [
+      {
+        "id": "a7560b6f-d7a7-4d61-b700-e1f2d3f6f1b8",
+        "version": 1,
+        "state": {
+          "lastGroupId": 4,
+          "lastNodeId": 131,
+          "lastLinkId": 239,
+          "lastRerouteId": 0
+        },
+        "revision": 0,
+        "config": {},
+        "name": "New Subgraph",
+        "inputNode": {
+          "id": -10,
+          "bounding": [
+            -4312.472968225021,
+            -1612.3151905353852,
+            120,
+            140
+          ]
+        },
+        "outputNode": {
+          "id": -20,
+          "bounding": [
+            -1527.0159736505452,
+            -1602.3151905353852,
+            120,
+            60
+          ]
+        },
+        "inputs": [
+          {
+            "id": "6c0a2cbb-d2b6-4323-a979-447380b0566f",
+            "name": "model",
+            "type": "MODEL",
+            "linkIds": [
+              220
+            ],
+            "localized_name": "模型",
+            "pos": [
+              -4212.472968225021,
+              -1592.3151905353852
+            ]
+          },
+          {
+            "id": "bb9181c2-eb8b-490e-8306-5a71de6d32cf",
+            "name": "text",
+            "type": "STRING",
+            "linkIds": [
+              233
+            ],
+            "label": "提示词",
+            "pos": [
+              -4212.472968225021,
+              -1572.3151905353852
+            ]
+          },
+          {
+            "id": "f64686a4-716a-4a07-bce2-503b0ef87de9",
+            "name": "value",
+            "type": "BOOLEAN",
+            "linkIds": [
+              227
+            ],
+            "label": "是否横屏",
+            "pos": [
+              -4212.472968225021,
+              -1552.3151905353852
+            ]
+          },
+          {
+            "id": "71ca58d3-7367-4340-97bd-86a350419c23",
+            "name": "value_1",
+            "type": "STRING",
+            "linkIds": [
+              234
+            ],
+            "label": "提示词文件",
+            "pos": [
+              -4212.472968225021,
+              -1532.3151905353852
+            ]
+          },
+          {
+            "id": "86e799f0-55d1-4bed-b962-dbb1b69725cb",
+            "name": "directory",
+            "type": "STRING",
+            "linkIds": [
+              235
+            ],
+            "label": "输出文件目录",
+            "pos": [
+              -4212.472968225021,
+              -1512.3151905353852
+            ]
+          }
+        ],
+        "outputs": [
+          {
+            "id": "39dfa150-2ce4-4258-a1e4-fd55747ac087",
+            "name": "output",
+            "type": "*",
+            "linkIds": [
+              228
+            ],
+            "pos": [
+              -1507.0159736505452,
+              -1582.3151905353852
+            ]
+          }
+        ],
+        "widgets": [],
+        "nodes": [
+          {
+            "id": 100,
+            "type": "easy ifElse",
+            "pos": [
+              -3341.5218042483802,
+              -1661.981121946732
+            ],
+            "size": [
+              270,
+              78
+            ],
+            "flags": {},
+            "order": 8,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "真流程",
+                "name": "on_true",
+                "type": "*",
+                "link": 187
+              },
+              {
+                "localized_name": "假流程",
+                "name": "on_false",
+                "type": "*",
+                "link": 188
+              },
+              {
+                "localized_name": "是否为真",
+                "name": "boolean",
+                "type": "BOOLEAN",
+                "widget": {
+                  "name": "boolean"
+                },
+                "link": 189
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "*",
+                "name": "*",
+                "type": "*",
+                "links": [
+                  199
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "easy ifElse",
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "input_ue_unconnectable": {},
+                "version": "7.7"
+              }
+            },
+            "widgets_values": [
+              false
+            ]
+          },
+          {
+            "id": 101,
+            "type": "easy ifElse",
+            "pos": [
+              -3339.943407108267,
+              -1510.124968286704
+            ],
+            "size": [
+              270,
+              78
+            ],
+            "flags": {},
+            "order": 9,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "真流程",
+                "name": "on_true",
+                "type": "*",
+                "link": 190
+              },
+              {
+                "localized_name": "假流程",
+                "name": "on_false",
+                "type": "*",
+                "link": 191
+              },
+              {
+                "localized_name": "是否为真",
+                "name": "boolean",
+                "type": "BOOLEAN",
+                "widget": {
+                  "name": "boolean"
+                },
+                "link": 192
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "*",
+                "name": "*",
+                "type": "*",
+                "links": [
+                  200
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "easy ifElse",
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "input_ue_unconnectable": {},
+                "version": "7.7"
+              }
+            },
+            "widgets_values": [
+              false
+            ]
+          },
+          {
+            "id": 102,
+            "type": "easy int",
+            "pos": [
+              -3376.146650025852,
+              -1105.361909052333
+            ],
+            "size": [
+              270,
+              58
+            ],
+            "flags": {},
+            "order": 0,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+              {
+                "localized_name": "整数",
+                "name": "int",
+                "type": "INT",
+                "links": [
+                  193,
+                  197
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "easy int",
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "input_ue_unconnectable": {},
+                "version": "7.7"
+              }
+            },
+            "widgets_values": [
+              2560
+            ]
+          },
+          {
+            "id": 103,
+            "type": "easy int",
+            "pos": [
+              -3380.2848366693233,
+              -958.0856029040685
+            ],
+            "size": [
+              270,
+              58
+            ],
+            "flags": {},
+            "order": 1,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+              {
+                "localized_name": "整数",
+                "name": "int",
+                "type": "INT",
+                "links": [
+                  194,
+                  196
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "easy int",
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "input_ue_unconnectable": {},
+                "version": "7.7"
+              }
+            },
+            "widgets_values": [
+              1440
+            ]
+          },
+          {
+            "id": 105,
+            "type": "RB_Code",
+            "pos": [
+              -4051.282882300313,
+              -2321.706656703067
+            ],
+            "size": [
+              558.2838491505597,
+              119
+            ],
+            "flags": {
+              "collapsed": true
+            },
+            "order": 11,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "In01",
+                "name": "In01",
+                "shape": 7,
+                "type": "*",
+                "link": 210
+              },
+              {
+                "localized_name": "In02",
+                "name": "In02",
+                "shape": 7,
+                "type": "*",
+                "link": null
+              },
+              {
+                "localized_name": "In03",
+                "name": "In03",
+                "shape": 7,
+                "type": "*",
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "out01",
+                "name": "out01",
+                "type": "*",
+                "links": [
+                  209
+                ]
+              },
+              {
+                "localized_name": "out02",
+                "name": "out02",
+                "type": "*",
+                "links": []
+              },
+              {
+                "localized_name": "out03",
+                "name": "out03",
+                "type": "*",
+                "links": []
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "RB_Code",
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "input_ue_unconnectable": {},
+                "version": "7.4"
+              }
+            },
+            "widgets_values": [
+              "import os\nimport comfy.model_management as model_mgmt\n\n# 辅助函数：提取元组中的实际值\ndef get_input_value(val):\n    \"\"\"ComfyUI输入为元组，提取第一个元素\"\"\"\n    if isinstance(val, tuple) and len(val) > 0:\n        return val[0]\n    return val\n\n# 中止流程的函数\ndef abort_process(error_msg):\n    \"\"\"中止ComfyUI当前流程运行\"\"\"\n    model_mgmt.interrupt_current_processing()\n    raise RuntimeError(error_msg)\n\n# 获取文件路径并处理元组情况\nfile_path = get_input_value(inputs['In01'])\n\n# 检查是否为有效的文本文件\nif isinstance(file_path, str) and file_path.lower().endswith('.txt'):\n    try:\n        # 读取文件第一行\n        with open(file_path, 'r', encoding='utf-8') as f:\n            first_line = f.readline()\n        \n        # 检查文件是否为空（读取后无内容）\n        if not first_line:\n            abort_process(f\"文件 '{file_path}' 为空，流程已中止\")\n        \n        # 成功读取第一行并去掉换行符\n        outputs[0] = first_line.strip()\n        \n    except FileNotFoundError:\n        abort_process(f\"文件 '{file_path}' 不存在，流程已中止\")\n        \n    except UnicodeDecodeError:\n        abort_process(f\"文件 '{file_path}' 编码错误，请使用UTF-8编码，流程已中止\")\n        \n    except Exception as e:\n        abort_process(f\"读取文件失败: {str(e)}，流程已中止\")\n        \nelse:\n    # 如果不是文件路径，直接作为值输出\n    outputs[0] = str(file_path)\n\n# 不输出第2、3个参数\n# 注意：在动态代码节点中，需要确保outputs长度与节点定义匹配",
+              "./res/hello.py",
+              false,
+              true
+            ]
+          },
+          {
+            "id": 106,
+            "type": "StringConcatenate",
+            "pos": [
+              -4099.440851410426,
+              -2238.7304377353857
+            ],
+            "size": [
+              369.2539000000006,
+              166
+            ],
+            "flags": {
+              "collapsed": false
+            },
+            "order": 12,
+            "mode": 0,
+            "inputs": [
+              {
+                "label": "提示词前缀",
+                "localized_name": "字符串A",
+                "name": "string_a",
+                "type": "STRING",
+                "widget": {
+                  "name": "string_a"
+                },
+                "link": 233
+              },
+              {
+                "localized_name": "字符串B",
+                "name": "string_b",
+                "type": "STRING",
+                "widget": {
+                  "name": "string_b"
+                },
+                "link": 209
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "字符串",
+                "name": "STRING",
+                "type": "STRING",
+                "links": [
+                  208
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "StringConcatenate",
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "input_ue_unconnectable": {},
+                "version": "7.7"
+              }
+            },
+            "widgets_values": [
+              "中国上海网红美女，她身着燕麦色针织开衫与高腰阔腿牛仔裤，一头慵懒法式卷发垂落肩头，置身于上海外滩露天咖啡馆。",
+              "",
+              ""
+            ]
+          },
+          {
+            "id": 108,
+            "type": "PrimitiveBoolean",
+            "pos": [
+              -3982.607937703405,
+              -1190.5054600922676
+            ],
+            "size": [
+              270,
+              58
+            ],
+            "flags": {},
+            "order": 14,
+            "mode": 0,
+            "inputs": [
+              {
+                "label": "是否横屏",
+                "localized_name": "值",
+                "name": "value",
+                "type": "BOOLEAN",
+                "widget": {
+                  "name": "value"
+                },
+                "link": 227
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "布尔",
+                "name": "BOOLEAN",
+                "type": "BOOLEAN",
+                "links": [
+                  189,
+                  192,
+                  195,
+                  198
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "PrimitiveBoolean",
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "input_ue_unconnectable": {},
+                "version": "7.7"
+              }
+            },
+            "widgets_values": [
+              true
+            ]
+          },
+          {
+            "id": 110,
+            "type": "RB_Code",
+            "pos": [
+              -1906.4572629711174,
+              -1739.5685968547477
+            ],
+            "size": [
+              539.4299979197906,
+              119
+            ],
+            "flags": {
+              "collapsed": true
+            },
+            "order": 16,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "In01",
+                "name": "In01",
+                "shape": 7,
+                "type": "*",
+                "link": 204
+              },
+              {
+                "localized_name": "In02",
+                "name": "In02",
+                "shape": 7,
+                "type": "*",
+                "link": 205
+              },
+              {
+                "localized_name": "In03",
+                "name": "In03",
+                "shape": 7,
+                "type": "*",
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "out01",
+                "name": "out01",
+                "type": "*",
+                "links": []
+              },
+              {
+                "localized_name": "out02",
+                "name": "out02",
+                "type": "*",
+                "links": [
+                  207
+                ]
+              },
+              {
+                "localized_name": "out03",
+                "name": "out03",
+                "type": "*",
+                "links": []
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "RB_Code",
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "input_ue_unconnectable": {},
+                "version": "7.4"
+              }
+            },
+            "widgets_values": [
+              "import os\n\n# 辅助函数：提取元组中的实际值（用于文件路径）\ndef get_input_value(val):\n    \"\"\"如果输入是元组，返回第一个元素；否则返回原值\"\"\"\n    if isinstance(val, tuple) and len(val) > 0:\n        return val[0]\n    return val\n\n# 辅助函数：将元组转换为拼接字符串（用于第二个参数）\ndef tuple_to_string(val):\n    \"\"\"将元组所有元素转为字符串并拼接成一行，非元组则直接转字符串\"\"\"\n    if isinstance(val, tuple):\n        return ' '.join(str(item) for item in val)\n    return str(val)\n\n# 获取文件路径并处理元组情况\nfile_path = get_input_value(inputs['In01'])\n# 将第二个输入参数（元组）转为字符串\nsecond_param_str = tuple_to_string(inputs['In02'])\n\n# 检查是否为有效的文本文件\nif isinstance(file_path, str) and os.path.isfile(file_path) and file_path.lower().endswith('.txt'):\n    try:\n        # 读取文件所有行\n        with open(file_path, 'r', encoding='utf-8') as f:\n            lines = f.readlines()\n        \n        # 写回文件（跳过第一行）\n        with open(file_path, 'w', encoding='utf-8') as f:\n            f.writelines(lines[1:])\n        \n        outputs[0] = f\"成功：已删除文件 '{file_path}' 的第一行\"\n        \n    except UnicodeDecodeError:\n        outputs[0] = f\"错误：文件 '{file_path}' 编码错误，请使用UTF-8编码\"\n    except PermissionError:\n        outputs[0] = f\"错误：没有权限修改文件 '{file_path}'\"\n    except Exception as e:\n        outputs[0] = f\"错误：文件操作失败 - {str(e)}\"\nelse:\n    outputs[0] = f\"错误：'{file_path}' 不是有效的文本文件路径\"\n\n# 将转换后的字符串返回到第二个输出\noutputs[1] = second_param_str",
+              "./res/hello.py",
+              false,
+              false
+            ]
+          },
+          {
+            "id": 113,
+            "type": "easy int",
+            "pos": [
+              -3772.5877634018334,
+              -1719.4117546172276
+            ],
+            "size": [
+              270,
+              58
+            ],
+            "flags": {},
+            "order": 2,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+              {
+                "localized_name": "整数",
+                "name": "int",
+                "type": "INT",
+                "links": [
+                  187,
+                  191
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "easy int",
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "input_ue_unconnectable": {},
+                "version": "7.7"
+              }
+            },
+            "widgets_values": [
+              1536
+            ]
+          },
+          {
+            "id": 114,
+            "type": "easy int",
+            "pos": [
+              -3774.661193632549,
+              -1566.9735007254621
+            ],
+            "size": [
+              270,
+              58
+            ],
+            "flags": {},
+            "order": 3,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+              {
+                "localized_name": "整数",
+                "name": "int",
+                "type": "INT",
+                "links": [
+                  188,
+                  190
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "easy int",
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "input_ue_unconnectable": {},
+                "version": "7.7"
+              }
+            },
+            "widgets_values": [
+              896
+            ]
+          },
+          {
+            "id": 116,
+            "type": "EmptyLatentImage",
+            "pos": [
+              -3020.192042705171,
+              -1780.4147185075813
+            ],
+            "size": [
+              269.9869791666667,
+              119.20572916666669
+            ],
+            "flags": {},
+            "order": 19,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "宽度",
+                "name": "width",
+                "type": "INT",
+                "widget": {
+                  "name": "width"
+                },
+                "link": 199
+              },
+              {
+                "localized_name": "高度",
+                "name": "height",
+                "type": "INT",
+                "widget": {
+                  "name": "height"
+                },
+                "link": 200
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "Latent",
+                "name": "LATENT",
+                "type": "LATENT",
+                "links": [
+                  202
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "EmptyLatentImage",
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.3.75"
+            },
+            "widgets_values": [
+              1024,
+              1024,
+              1
+            ],
+            "color": "#323",
+            "bgcolor": "#535"
+          },
+          {
+            "id": 119,
+            "type": "VAEDecode",
+            "pos": [
+              -2365.4875483451733,
+              -1998.1322493864802
+            ],
+            "size": [
+              187.5,
+              54.21875
+            ],
+            "flags": {},
+            "order": 22,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "Latent",
+                "name": "samples",
+                "type": "LATENT",
+                "link": 212
+              },
+              {
+                "localized_name": "vae",
+                "name": "vae",
+                "type": "VAE",
+                "link": 203
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "图像",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  216
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "VAEDecode",
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.3.75"
+            },
+            "widgets_values": []
+          },
+          {
+            "id": 120,
+            "type": "easy ifElse",
+            "pos": [
+              -3028.746099375303,
+              -731.9334405226539
+            ],
+            "size": [
+              270,
+              78
+            ],
+            "flags": {},
+            "order": 23,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "真流程",
+                "name": "on_true",
+                "type": "*",
+                "link": 196
+              },
+              {
+                "localized_name": "假流程",
+                "name": "on_false",
+                "type": "*",
+                "link": 197
+              },
+              {
+                "localized_name": "是否为真",
+                "name": "boolean",
+                "type": "BOOLEAN",
+                "widget": {
+                  "name": "boolean"
+                },
+                "link": 198
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "*",
+                "name": "*",
+                "type": "*",
+                "links": [
+                  214
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "easy ifElse",
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "input_ue_unconnectable": {},
+                "version": "7.7"
+              }
+            },
+            "widgets_values": [
+              false
+            ]
+          },
+          {
+            "id": 121,
+            "type": "easy ifElse",
+            "pos": [
+              -2999.6977203665324,
+              -909.4580510176429
+            ],
+            "size": [
+              270,
+              78
+            ],
+            "flags": {},
+            "order": 24,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "真流程",
+                "name": "on_true",
+                "type": "*",
+                "link": 193
+              },
+              {
+                "localized_name": "假流程",
+                "name": "on_false",
+                "type": "*",
+                "link": 194
+              },
+              {
+                "localized_name": "是否为真",
+                "name": "boolean",
+                "type": "BOOLEAN",
+                "widget": {
+                  "name": "boolean"
+                },
+                "link": 195
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "*",
+                "name": "*",
+                "type": "*",
+                "links": [
+                  213
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "easy ifElse",
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "input_ue_unconnectable": {},
+                "version": "7.7"
+              }
+            },
+            "widgets_values": [
+              false
+            ]
+          },
+          {
+            "id": 122,
+            "type": "SeedVR2LoadVAEModel",
+            "pos": [
+              -2725.945639545089,
+              -1347.0926619637726
+            ],
+            "size": [
+              277.1180905753673,
+              298
+            ],
+            "flags": {},
+            "order": 4,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "torch_compile_args",
+                "name": "torch_compile_args",
+                "shape": 7,
+                "type": "TORCH_COMPILE_ARGS",
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "SEEDVR2_VAE",
+                "name": "SEEDVR2_VAE",
+                "type": "SEEDVR2_VAE",
+                "links": [
+                  219
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "SeedVR2LoadVAEModel",
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "input_ue_unconnectable": {},
+                "version": "7.7"
+              }
+            },
+            "widgets_values": [
+              "ema_vae_fp16.safetensors",
+              "cuda:0",
+              true,
+              768,
+              128,
+              true,
+              768,
+              128,
+              "false",
+              "none",
+              false
+            ]
+          },
+          {
+            "id": 124,
+            "type": "SeedVR2LoadDiTModel",
+            "pos": [
+              -3059.591104471902,
+              -1354.4389058246566
+            ],
+            "size": [
+              288.79002004481833,
+              202
+            ],
+            "flags": {},
+            "order": 5,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "torch_compile_args",
+                "name": "torch_compile_args",
+                "shape": 7,
+                "type": "TORCH_COMPILE_ARGS",
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "SEEDVR2_DIT",
+                "name": "SEEDVR2_DIT",
+                "type": "SEEDVR2_DIT",
+                "links": [
+                  218
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "SeedVR2LoadDiTModel",
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "input_ue_unconnectable": {},
+                "version": "7.7"
+              }
+            },
+            "widgets_values": [
+              "seedvr2_ema_3b-Q4_K_M.gguf",
+              "cuda:0",
+              32,
+              false,
+              "cpu",
+              false,
+              "sdpa"
+            ]
+          },
+          {
+            "id": 104,
+            "type": "easy showAnything",
+            "pos": [
+              -4091.0326207859216,
+              -1969.659622193098
+            ],
+            "size": [
+              362.50412369815433,
+              127.94050328799301
+            ],
+            "flags": {},
+            "order": 10,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "输入任何",
+                "name": "anything",
+                "shape": 7,
+                "type": "*",
+                "link": 208
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "输出",
+                "name": "output",
+                "type": "*",
+                "links": [
+                  206,
+                  232
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "easy showAnything",
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "input_ue_unconnectable": {},
+                "version": "7.4"
+              }
+            },
+            "widgets_values": [
+              "中国上海网红美女，她身着燕麦色针织开衫与高腰阔腿牛仔裤，一头慵懒法式卷发垂落肩头，置身于上海外滩露天咖啡馆。8. **静立树影** — 立于斑驳树影中，双手插于裤袋，任风拂动发梢"
+            ],
+            "color": "#432",
+            "bgcolor": "#653"
+          },
+          {
+            "id": 125,
+            "type": "VAELoader",
+            "pos": [
+              -3453.6868310452255,
+              -1909.8697560984854
+            ],
+            "size": [
+              299.09275159400767,
+              58
+            ],
+            "flags": {},
+            "order": 6,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+              {
+                "localized_name": "VAE",
+                "name": "VAE",
+                "type": "VAE",
+                "links": [
+                  203
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "VAELoader",
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              }
+            },
+            "widgets_values": [
+              "ae.safetensors"
+            ],
+            "color": "#332922",
+            "bgcolor": "#593930"
+          },
+          {
+            "id": 126,
+            "type": "CLIPLoader",
+            "pos": [
+              -3694.979209913919,
+              -2341.1110530950555
+            ],
+            "size": [
+              312.53920585534456,
+              106
+            ],
+            "flags": {},
+            "order": 7,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+              {
+                "localized_name": "CLIP",
+                "name": "CLIP",
+                "type": "CLIP",
+                "links": [
+                  221
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "CLIPLoader",
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "input_ue_unconnectable": {},
+                "version": "7.7"
+              }
+            },
+            "widgets_values": [
+              "qwen_3_4b.safetensors",
+              "qwen_image",
+              "default"
+            ],
+            "color": "#332922",
+            "bgcolor": "#593930"
+          },
+          {
+            "id": 130,
+            "type": "ConditioningZeroOut",
+            "pos": [
+              -3029.4640446917615,
+              -1879.1827023722017
+            ],
+            "size": [
+              140,
+              26
+            ],
+            "flags": {},
+            "order": 26,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "条件",
+                "name": "conditioning",
+                "type": "CONDITIONING",
+                "link": 236
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "条件",
+                "name": "CONDITIONING",
+                "type": "CONDITIONING",
+                "links": [
+                  237
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "input_ue_unconnectable": {}
+              },
+              "Node name for S&R": "ConditioningZeroOut"
+            }
+          },
+          {
+            "id": 111,
+            "type": "CLIPTextEncode",
+            "pos": [
+              -3265.493036553775,
+              -2122.052198747676
+            ],
+            "size": [
+              259.8423206619543,
+              88
+            ],
+            "flags": {},
+            "order": 17,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "clip",
+                "name": "clip",
+                "type": "CLIP",
+                "link": 221
+              },
+              {
+                "localized_name": "文本",
+                "name": "text",
+                "type": "STRING",
+                "widget": {
+                  "name": "text"
+                },
+                "link": 232
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "条件",
+                "name": "CONDITIONING",
+                "type": "CONDITIONING",
+                "links": [
+                  201,
+                  236
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "CLIPTextEncode",
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.3.75"
+            },
+            "widgets_values": [
+              "中国上海网红美女，她身着燕麦色针织开衫与高腰阔腿牛仔裤，一头慵懒法式卷发垂落肩头，置身于上海外滩露天咖啡馆。"
+            ],
+            "color": "#232",
+            "bgcolor": "#353"
+          },
+          {
+            "id": 117,
+            "type": "RB_SaveImages",
+            "pos": [
+              -1919.4618736501911,
+              -1501.2445223701316
+            ],
+            "size": [
+              358.5780500000001,
+              154
+            ],
+            "flags": {},
+            "order": 20,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "images",
+                "name": "images",
+                "type": "IMAGE",
+                "link": 215
+              },
+              {
+                "localized_name": "directory",
+                "name": "directory",
+                "type": "STRING",
+                "widget": {
+                  "name": "directory"
+                },
+                "link": 235
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "字符串",
+                "name": "STRING",
+                "type": "STRING",
+                "links": [
+                  205
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "RB_SaveImages",
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "input_ue_unconnectable": {},
+                "version": "7.4"
+              }
+            },
+            "widgets_values": [
+              "z:/zit/Z%y-%m-%d",
+              "ZIT_{index}.jpg",
+              70,
+              300,
+              ""
+            ],
+            "color": "#232",
+            "bgcolor": "#353"
+          },
+          {
+            "id": 109,
+            "type": "easy showAnything",
+            "pos": [
+              -1969.5376293254483,
+              -1971.3194165368386
+            ],
+            "size": [
+              359.38937137144694,
+              94.0849690511194
+            ],
+            "flags": {},
+            "order": 15,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "输入任何",
+                "name": "anything",
+                "shape": 7,
+                "type": "*",
+                "link": 207
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "输出",
+                "name": "output",
+                "type": "*",
+                "links": [
+                  228
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "easy showAnything",
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "input_ue_unconnectable": {},
+                "version": "7.4"
+              }
+            },
+            "widgets_values": [
+              "z:/zit/Z26-03-06\\ZIT_00015.jpg"
+            ],
+            "color": "#432",
+            "bgcolor": "#653"
+          },
+          {
+            "id": 107,
+            "type": "PrimitiveString",
+            "pos": [
+              -4097.630101557882,
+              -2482.148726659247
+            ],
+            "size": [
+              363.63112747707464,
+              60.6842160992432
+            ],
+            "flags": {},
+            "order": 13,
+            "mode": 0,
+            "inputs": [
+              {
+                "label": "提示词文件",
+                "localized_name": "值",
+                "name": "value",
+                "type": "STRING",
+                "widget": {
+                  "name": "value"
+                },
+                "link": 234
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "字符串",
+                "name": "STRING",
+                "type": "STRING",
+                "links": [
+                  204,
+                  210
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "PrimitiveString",
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "input_ue_unconnectable": {},
+                "version": "7.4"
+              }
+            },
+            "widgets_values": [
+              "z:/zit/提示词.txt"
+            ],
+            "color": "#232",
+            "bgcolor": "#353"
+          },
+          {
+            "id": 118,
+            "type": "ImageScale",
+            "pos": [
+              -2205.5676851244225,
+              -922.51413744248
+            ],
+            "size": [
+              300.66238132271246,
+              134.54258887361084
+            ],
+            "flags": {},
+            "order": 21,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "图像",
+                "name": "image",
+                "type": "IMAGE",
+                "link": 217
+              },
+              {
+                "localized_name": "宽度",
+                "name": "width",
+                "type": "INT",
+                "widget": {
+                  "name": "width"
+                },
+                "link": 213
+              },
+              {
+                "localized_name": "高度",
+                "name": "height",
+                "type": "INT",
+                "widget": {
+                  "name": "height"
+                },
+                "link": 214
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "图像",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  215
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "ImageScale",
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "input_ue_unconnectable": {},
+                "version": "7.7"
+              }
+            },
+            "widgets_values": [
+              "lanczos",
+              512,
+              512,
+              "center"
+            ]
+          },
+          {
+            "id": 115,
+            "type": "KSamplerAdvanced",
+            "pos": [
+              -2695.5026661064667,
+              -1997.04220388744
+            ],
+            "size": [
+              270,
+              334
+            ],
+            "flags": {},
+            "order": 18,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "模型",
+                "name": "model",
+                "type": "MODEL",
+                "link": 220
+              },
+              {
+                "localized_name": "正面条件",
+                "name": "positive",
+                "type": "CONDITIONING",
+                "link": 201
+              },
+              {
+                "localized_name": "负面条件",
+                "name": "negative",
+                "type": "CONDITIONING",
+                "link": 237
+              },
+              {
+                "localized_name": "Latent图像",
+                "name": "latent_image",
+                "type": "LATENT",
+                "link": 202
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "Latent",
+                "name": "LATENT",
+                "type": "LATENT",
+                "links": [
+                  212
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "KSamplerAdvanced",
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "input_ue_unconnectable": {},
+                "version": "7.7"
+              }
+            },
+            "widgets_values": [
+              "enable",
+              965995210360079,
+              "randomize",
+              10,
+              1,
+              "res_multistep",
+              "simple",
+              0,
+              1000,
+              "disable"
+            ]
+          },
+          {
+            "id": 123,
+            "type": "SeedVR2VideoUpscaler",
+            "pos": [
+              -2370.7604546916555,
+              -1612.7224589283971
+            ],
+            "size": [
+              329.956640625,
+              386
+            ],
+            "flags": {},
+            "order": 25,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "image",
+                "name": "image",
+                "type": "IMAGE",
+                "link": 216
+              },
+              {
+                "localized_name": "dit",
+                "name": "dit",
+                "type": "SEEDVR2_DIT",
+                "link": 218
+              },
+              {
+                "localized_name": "vae",
+                "name": "vae",
+                "type": "SEEDVR2_VAE",
+                "link": 219
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "图像",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  217
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "SeedVR2VideoUpscaler",
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "input_ue_unconnectable": {},
+                "version": "7.7"
+              }
+            },
+            "widgets_values": [
+              1237052519,
+              "randomize",
+              2160,
+              4096,
+              1,
+              false,
+              "lab",
+              0,
+              0,
+              0,
+              0,
+              "cpu",
+              false
+            ]
+          }
+        ],
+        "groups": [],
+        "links": [
+          {
+            "id": 187,
+            "origin_id": 113,
+            "origin_slot": 0,
+            "target_id": 100,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 188,
+            "origin_id": 114,
+            "origin_slot": 0,
+            "target_id": 100,
+            "target_slot": 1,
+            "type": "INT"
+          },
+          {
+            "id": 189,
+            "origin_id": 108,
+            "origin_slot": 0,
+            "target_id": 100,
+            "target_slot": 2,
+            "type": "BOOLEAN"
+          },
+          {
+            "id": 190,
+            "origin_id": 114,
+            "origin_slot": 0,
+            "target_id": 101,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 191,
+            "origin_id": 113,
+            "origin_slot": 0,
+            "target_id": 101,
+            "target_slot": 1,
+            "type": "INT"
+          },
+          {
+            "id": 192,
+            "origin_id": 108,
+            "origin_slot": 0,
+            "target_id": 101,
+            "target_slot": 2,
+            "type": "BOOLEAN"
+          },
+          {
+            "id": 208,
+            "origin_id": 106,
+            "origin_slot": 0,
+            "target_id": 104,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 210,
+            "origin_id": 107,
+            "origin_slot": 0,
+            "target_id": 105,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 209,
+            "origin_id": 105,
+            "origin_slot": 0,
+            "target_id": 106,
+            "target_slot": 1,
+            "type": "STRING"
+          },
+          {
+            "id": 207,
+            "origin_id": 110,
+            "origin_slot": 1,
+            "target_id": 109,
+            "target_slot": 0,
+            "type": "*"
+          },
+          {
+            "id": 204,
+            "origin_id": 107,
+            "origin_slot": 0,
+            "target_id": 110,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 205,
+            "origin_id": 117,
+            "origin_slot": 0,
+            "target_id": 110,
+            "target_slot": 1,
+            "type": "STRING"
+          },
+          {
+            "id": 221,
+            "origin_id": 126,
+            "origin_slot": 0,
+            "target_id": 111,
+            "target_slot": 0,
+            "type": "CLIP"
+          },
+          {
+            "id": 201,
+            "origin_id": 111,
+            "origin_slot": 0,
+            "target_id": 115,
+            "target_slot": 1,
+            "type": "CONDITIONING"
+          },
+          {
+            "id": 202,
+            "origin_id": 116,
+            "origin_slot": 0,
+            "target_id": 115,
+            "target_slot": 3,
+            "type": "LATENT"
+          },
+          {
+            "id": 199,
+            "origin_id": 100,
+            "origin_slot": 0,
+            "target_id": 116,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 200,
+            "origin_id": 101,
+            "origin_slot": 0,
+            "target_id": 116,
+            "target_slot": 1,
+            "type": "INT"
+          },
+          {
+            "id": 215,
+            "origin_id": 118,
+            "origin_slot": 0,
+            "target_id": 117,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 217,
+            "origin_id": 123,
+            "origin_slot": 0,
+            "target_id": 118,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 213,
+            "origin_id": 121,
+            "origin_slot": 0,
+            "target_id": 118,
+            "target_slot": 1,
+            "type": "INT"
+          },
+          {
+            "id": 214,
+            "origin_id": 120,
+            "origin_slot": 0,
+            "target_id": 118,
+            "target_slot": 2,
+            "type": "INT"
+          },
+          {
+            "id": 212,
+            "origin_id": 115,
+            "origin_slot": 0,
+            "target_id": 119,
+            "target_slot": 0,
+            "type": "LATENT"
+          },
+          {
+            "id": 203,
+            "origin_id": 125,
+            "origin_slot": 0,
+            "target_id": 119,
+            "target_slot": 1,
+            "type": "VAE"
+          },
+          {
+            "id": 196,
+            "origin_id": 103,
+            "origin_slot": 0,
+            "target_id": 120,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 197,
+            "origin_id": 102,
+            "origin_slot": 0,
+            "target_id": 120,
+            "target_slot": 1,
+            "type": "INT"
+          },
+          {
+            "id": 198,
+            "origin_id": 108,
+            "origin_slot": 0,
+            "target_id": 120,
+            "target_slot": 2,
+            "type": "BOOLEAN"
+          },
+          {
+            "id": 193,
+            "origin_id": 102,
+            "origin_slot": 0,
+            "target_id": 121,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 194,
+            "origin_id": 103,
+            "origin_slot": 0,
+            "target_id": 121,
+            "target_slot": 1,
+            "type": "INT"
+          },
+          {
+            "id": 195,
+            "origin_id": 108,
+            "origin_slot": 0,
+            "target_id": 121,
+            "target_slot": 2,
+            "type": "BOOLEAN"
+          },
+          {
+            "id": 216,
+            "origin_id": 119,
+            "origin_slot": 0,
+            "target_id": 123,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 218,
+            "origin_id": 124,
+            "origin_slot": 0,
+            "target_id": 123,
+            "target_slot": 1,
+            "type": "SEEDVR2_DIT"
+          },
+          {
+            "id": 219,
+            "origin_id": 122,
+            "origin_slot": 0,
+            "target_id": 123,
+            "target_slot": 2,
+            "type": "SEEDVR2_VAE"
+          },
+          {
+            "id": 220,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 115,
+            "target_slot": 0,
+            "type": "MODEL"
+          },
+          {
+            "id": 227,
+            "origin_id": -10,
+            "origin_slot": 2,
+            "target_id": 108,
+            "target_slot": 0,
+            "type": "BOOLEAN"
+          },
+          {
+            "id": 228,
+            "origin_id": 109,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 0,
+            "type": "*"
+          },
+          {
+            "id": 232,
+            "origin_id": 104,
+            "origin_slot": 0,
+            "target_id": 111,
+            "target_slot": 1,
+            "type": "STRING"
+          },
+          {
+            "id": 233,
+            "origin_id": -10,
+            "origin_slot": 1,
+            "target_id": 106,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 234,
+            "origin_id": -10,
+            "origin_slot": 3,
+            "target_id": 107,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 235,
+            "origin_id": -10,
+            "origin_slot": 4,
+            "target_id": 117,
+            "target_slot": 1,
+            "type": "STRING"
+          },
+          {
+            "id": 236,
+            "origin_id": 111,
+            "origin_slot": 0,
+            "target_id": 130,
+            "target_slot": 0,
+            "type": "CONDITIONING"
+          },
+          {
+            "id": 237,
+            "origin_id": 130,
+            "origin_slot": 0,
+            "target_id": 115,
+            "target_slot": 2,
+            "type": "CONDITIONING"
+          }
+        ],
+        "extra": {
+          "workflowRendererVersion": "LG",
+          "ue_links": [],
+          "links_added_by_ue": []
+        }
+      }
+    ]
+  },
+  "config": {},
+  "extra": {
+    "frontendVersion": "1.39.16",
+    "workflowRendererVersion": "LG",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true,
+    "ue_links": [],
+    "links_added_by_ue": [],
+    "ds": {
+      "scale": 1.0524036419790281,
+      "offset": [
+        6661.461461205781,
+        2243.1850163995455
+      ]
+    }
+  },
+  "version": 0.4
+}

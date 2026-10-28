@@ -1,0 +1,7 @@
+[
+  { "wait": 9000 },
+  { "eval": "(async () => { const ws = await (await fetch('/api/workflows')).json(); const w = ws.find(x => x.name === '验收工作流-三链'); const j = await (await fetch('/api/workflows/' + w.id)).json(); window.__comfyGraph.loadWorkflow(j); return 'loaded ' + w.id; })()" },
+  { "wait": 1500 },
+  { "eval": "JSON.stringify({ types: Object.values(window.__comfyGraph.graph._nodes).map(n => n.type), jsonTypes: 'n/a' })" },
+  { "eval": "(async () => { const ws = await (await fetch('/api/workflows')).json(); const w = ws.find(x => x.name === '验收工作流-三链'); const j = await (await fetch('/api/workflows/' + w.id)).json(); return JSON.stringify((j.nodes || []).map(n => n.type)); })()" }
+]

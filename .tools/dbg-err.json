@@ -1,0 +1,10 @@
+[
+  { "wait": 9000 },
+  { "eval": "(async () => { window.__errs2 = []; window.addEventListener('error', e => window.__errs2.push(String(e.message) + ' :: ' + (e.error && e.error.stack || '').split('\\n').slice(1, 4).join(' <<< '))); const r = await fetch('/examples/01-文本传递.json'); const j = await r.json(); window.__comfyGraph.loadWorkflow(j); return 'loaded'; })()" },
+  { "wait": 1200 },
+  { "eval": "(() => { const g = window.__comfyGraph; const node = Object.values(g.graph._nodes).find(n => n.type === 'TextInput'); const [gx, gy] = node.getConnectionPos(false, 0); const rect = g.canvas.canvas.getBoundingClientRect(); const va = g.canvas.visible_area; const sx = Math.round(rect.left + (gx - va[0]) * g.canvas.ds.scale); const sy = Math.round(rect.top + (gy - va[1]) * g.canvas.ds.scale); const c = g.canvas.canvas; const mk = (type, x, y, buttons) => c.dispatchEvent(new MouseEvent(type, { clientX: x, clientY: y, button: 0, buttons, bubbles: true, cancelable: true, view: window })); mk('mousedown', sx, sy, 1); mk('mousemove', 1180, 860, 1); document.dispatchEvent(new MouseEvent('mouseup', { clientX: 1180, clientY: 860, button: 0, buttons: 0, bubbles: true, cancelable: true, view: window })); return 'dropped'; })()" },
+  { "wait": 700 },
+  { "eval": "(() => { const i = document.querySelector('.nsb-input'); if (i) i.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true, cancelable: true })); return 'enter'; })()" },
+  { "wait": 1200 },
+  { "eval": "JSON.stringify(window.__errs2)" }
+]

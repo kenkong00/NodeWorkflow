@@ -1,0 +1,7 @@
+[
+  { "wait": 8000 },
+  { "eval": "1+1" },
+  { "eval": "JSON.stringify({a:1,b:'x'})" },
+  { "eval": "(() => JSON.stringify({a:1,b:'x'}))()" },
+  { "eval": "String(document.querySelectorAll('.topbar button').length)" }
+]

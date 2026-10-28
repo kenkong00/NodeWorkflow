@@ -1,0 +1,9 @@
+[
+  { "wait": 8000 },
+  { "eval": "(() => { const btns = [...document.querySelectorAll('.topbar button')].map((b,i) => i + ':' + (b.textContent||'').trim() + '|' + b.className); return JSON.stringify(btns); })()" },
+  { "eval": "(() => { const g = window.__comfyGraph; return JSON.stringify({ nodes: Object.keys(g.graph._nodes).length, links: g.graph.links ? Object.keys(g.graph.links).length : 0 }); })()" },
+  { "click": ".topbar button:nth-of-type(1)" },
+  { "wait": 1500 },
+  { "eval": "(() => { const d = document.querySelector('.modal, .dialog, [class*=dialog]'); return JSON.stringify({ hasDialog: !!d, dialogs: [...document.querySelectorAll('[class*=dialog],[class*=modal]')].map(e => e.className) }); })()" },
+  { "shot": "12-click-test.png" }
+]

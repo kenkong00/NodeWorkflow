@@ -1,0 +1,9 @@
+[
+  { "wait": 9000 },
+  { "eval": "(async () => { const j = await (await fetch('/examples/04-三链合一.json')).json(); window.__comfyGraph.loadWorkflow(j); window.__comfyGraph.fitView(); return 'loaded nodes=' + j.nodes.length; })()" },
+  { "wait": 1500 },
+  { "eval": "document.querySelector('.topbar button.primary').click(); 'run'" },
+  { "wait": 5000 },
+  { "eval": "JSON.stringify((() => { const g = window.__comfyGraph; const td = Object.values(g.graph._nodes).find(n => n.type === 'TextDisplay'); const pv = Object.values(g.graph._nodes).find(n => n.type === 'PreviewImageNative'); const img = pv.widgets[pv.widgets.length - 1].element.querySelector('img'); return { textShown: td.widgets[td.widgets.length - 1].element.textContent.slice(0, 30), imgW: img.naturalWidth, imgDisplay: img.style.display, nodes: Object.keys(g.graph._nodes).length, links: Object.keys(g.graph.links || {}).length }; })())" },
+  { "eval": "window.__comfyGraph.canvas.canvas.toDataURL('image/png')" }
+]

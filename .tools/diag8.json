@@ -1,0 +1,6 @@
+[
+  { "wait": 9000 },
+  { "eval": "(() => { const h = document.querySelector('.canvas-host'); h.dispatchEvent(new MouseEvent('contextmenu', { clientX: 700, clientY: 420, bubbles: true, cancelable: true })); return 'dispatched'; })()" },
+  { "wait": 800 },
+  { "eval": "(() => { const b = document.querySelector('.node-search-box'); return b ? 'shown@' + b.style.left + ',' + b.style.top : 'MISSING'; })()" }
+]

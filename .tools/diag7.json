@@ -1,0 +1,7 @@
+[
+  { "wait": 8000 },
+  { "eval": "JSON.stringify((() => { const cs = [...document.querySelectorAll('.canvas-host canvas')]; return cs.map(c => ({ cls: c.className, w: c.width, h: c.height, cssW: c.clientWidth, cssH: c.clientHeight })); })())" },
+  { "eval": "JSON.stringify((() => { const g = window.__comfyGraph; return { hasGraph: !!g, nodes: g ? Object.keys(g.graph._nodes).length : -1, canvasW: g ? g.canvas.canvas.width : -1, canvasH: g ? g.canvas.canvas.height : -1, ds: g ? g.canvas.ds : null }; })())" },
+  { "eval": "JSON.stringify((() => { const g = window.__comfyGraph; const c = g.canvas.canvas; const ctx = c.getContext('2d'); const d = ctx.getImageData(0, 0, Math.min(c.width, 200), Math.min(c.height, 200)).data; let nonBlack = 0; for (let i = 0; i < d.length; i += 4) { if (d[i] > 30 || d[i+1] > 30 || d[i+2] > 30) nonBlack++; } return { sampled: d.length / 4, nonBlack }; })())" },
+  { "eval": "JSON.stringify((() => { const g = window.__comfyGraph; let before = 0, after = 0; const c = g.canvas.canvas; const ctx = c.getContext('2d'); const snap = () => { const d = ctx.getImageData(0, 0, c.width, c.height).data; let s = 0; for (let i = 0; i < d.length; i += 997) s += d[i]; return s; }; before = snap(); return new Promise(res => { requestAnimationFrame(() => requestAnimationFrame(() => { after = snap(); res(JSON.stringify({ before, after, changed: before !== after })); })); }))()" }
+]

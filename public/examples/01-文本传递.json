@@ -1,0 +1,39 @@
+{
+  "last_node_id": 2,
+  "last_link_id": 1,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "TextInput",
+      "pos": [80, 80],
+      "size": [360, 240],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [{ "name": "TEXT", "type": "STRING", "links": [1], "slot_index": 0 }],
+      "properties": {},
+      "widgets_values": [
+        "你好，这是节点编辑工作流的第一条文本。\n\n试试这些操作：\n1. 在画布空白处右键 → 弹出搜索框，输入即可添加节点\n2. 从节点的输出端口拖动一条线，拖到空白处松手 → 只显示可连接的节点\n3. 拖动端口到另一个节点的输入端口完成连线，类型不同会自动拒绝\n4. Ctrl+S 保存，顶栏「打开」可以随时载入本示例"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "TextDisplay",
+      "pos": [560, 80],
+      "size": [360, 240],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [{ "name": "text", "type": "STRING", "link": 1 }],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [""]
+    }
+  ],
+  "links": [[1, 1, 0, 2, 0, "STRING"]],
+  "groups": [],
+  "config": {},
+  "extra": {},
+  "version": 0.4
+}

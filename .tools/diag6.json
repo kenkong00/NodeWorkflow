@@ -1,0 +1,6 @@
+[
+  { "wait": 8000 },
+  { "eval": "(() => JSON.stringify({ modal: !!document.querySelector('.modal-mask'), n: document.querySelectorAll('.topbar button').length }))()" },
+  { "eval": "typeof JSON.stringify" },
+  { "eval": "JSON.stringify({ modal: !!document.querySelector('.modal-mask'), n: document.querySelectorAll('.topbar button').length })" }
+]

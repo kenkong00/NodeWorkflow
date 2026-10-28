@@ -1,0 +1,8 @@
+[
+  { "wait": 9000 },
+  { "eval": "document.querySelectorAll('.topbar button')[3].click()" },
+  { "wait": 500 },
+  { "eval": "window.__comfyGraph.addNode('TextInput', [100, 100]); window.__comfyGraph.addNode('TextDisplay', [400, 100]); 'added'" },
+  { "wait": 500 },
+  { "eval": "JSON.stringify({ nodesInGraph: Object.keys(window.__comfyGraph.graph._nodes).length, ser: (() => { const s = window.__comfyGraph.serialize(); return { nodeCount: (s.nodes || []).length, linkCount: (s.links || []).length, lastNodeId: s.last_node_id, keys: Object.keys(s) }; })() })" }
+]

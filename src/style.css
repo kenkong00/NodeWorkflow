@@ -1,0 +1,73 @@
+/**
+ * 全局基础样式（ComfyUI 风格）
+ * 组件级样式见 styles/comfy-theme.css；此处只做 reset 与全局约定。
+ */
+
+/* ===== Reset ===== */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: #202020;
+  color: #e0e0e0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
+    'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+#app {
+  width: 100%;
+  height: 100vh;
+}
+
+/* ===== 滚动条（ComfyUI 细滚动条）===== */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4a4a4a;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5a5a5a;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* ===== 焦点与选中 ===== */
+:focus-visible {
+  outline: 1px solid #85b6ff;
+  outline-offset: 1px;
+}
+
+::selection {
+  background: rgba(133, 182, 255, 0.3);
+}
+
+/* ===== 画布容器（LiteGraph 挂载点）===== */
+canvas {
+  display: block;
+}
